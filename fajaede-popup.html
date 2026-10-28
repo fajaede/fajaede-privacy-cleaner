@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #333;
+            border-radius: 12px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header .tagline {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        .section {
+            margin-bottom: 0;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        h3 {
+            margin-top: 0;
+            color: #667eea;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #667eea;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 13px;
+            transition: border-color 0.3s;
+        }
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 13px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        button.secondary:hover {
+            box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+        }
+        .status {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .tip {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            font-size: 12px;
+            border-left: 4px solid #667eea;
+        }
+        .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .button-row button {
+            flex: 1;
+        }
+        .fajaede-badge {
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+            color: #666;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Fajaede Privacy-Cleaner</h1>
+            <div class="tagline">Slimme automatische browser opschoning</div>
+        </div>
+
+        <div class="section">
+            <h3>🕐 Schoonmaak Schema</h3>
+            <label>
+                <select id="schedule">
+                    <option value="off">Uit</option>
+                    <option value="1h">Elk uur</option>
+                    <option value="6h">Elke 6 uur</option>
+                    <option value="24h">Elke 24 uur</option>
+                    <option value="weekly">Elke week</option>
+                    <option value="browser_start">Bij browser start</option>
+                    <option value="browser_close">Bij volgende start (na sluiten)</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="section">
+            <h3>🧹 Te verwijderen gegevens</h3>
+            <label>
+                Tijdsperiode:
+                <select id="cleanRange">
+                    <option value="hour">Afgelopen uur</option>
+                    <option value="day">Afgelopen 24 uur</option>
+                    <option value="week">Afgelopen week</option>
+                    <option value="all">Alles</option>
+                </select>
+            </label>
+            <label><input type="checkbox" id="cache"> Cache</label>
+            <label><input type="checkbox" id="cookies"> Cookies</label>
+            <label><input type="checkbox" id="history"> Browsegeschiedenis</label>
+            <label><input type="checkbox" id="downloads"> Downloadgeschiedenis</label>
+            <label><input type="checkbox" id="formData"> Formuliergegevens (autofill)</label>
+            <label><input type="checkbox" id="localStorage"> Lokale site-opslag (localStorage, IndexedDB)</label>
+            <label><input type="checkbox" id="passwords"> Opgeslagen wachtwoorden</label>
+        </div>
+
+        <div class="section">
+            <h3>✅ Whitelist websites</h3>
+            <p style="font-size: 12px; margin-bottom: 10px; color: #666;">Cookies en site-opslag van deze websites behouden (één per regel):</p>
+            <textarea id="whitelist" rows="4" placeholder="bijv.: google.com&#10;github.com&#10;bank.nl"></textarea>
+            
+            <div class="button-row">
+                <button id="analyzeCurrent" class="secondary">🔍 Fajaede Analyseer Huidige Website</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>🤖 Fajaede Slimme Features</h3>
+            <label><input type="checkbox" id="smartFeatures" checked> 
+                Fajaede slimme whitelist suggesties en tips inschakelen
+            </label>
+            <div id="smartTips">
+                <!-- Hier komen de slimme tips -->
+            </div>
+        </div>
+
+        <div class="section">
+            <div id="lastCleanup" style="font-size: 12px; color: #666; margin-bottom: 10px;"></div>
+            <button id="save">💾 Opslaan - Fajaede Instellingen</button>
+            <button id="cleanNow">🧹 Fajaede Nu Opschonen</button>
+        </div>
+        
+        <div id="status" class="status" style="display: none;"></div>
+
+        <div class="fajaede-badge">
+            🔒 Powered by <strong>Fajaede</strong> - Jouw privacy onze zorg · <span id="fajaedeVersion"></span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

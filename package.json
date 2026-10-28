@@ -1,0 +1,39 @@
+{
+  "name": "fajaede-privacy-cleaner",
+  "version": "1.1.0",
+  "description": "Fajaede Smart Browser Cleaner - Open Source Chrome Extension for automatic browser data cleaning",
+  "main": "fajaede-background.js",
+  "scripts": {
+    "build": "echo 'No build process needed - pure JavaScript extension'",
+    "dev": "echo 'Load unpacked in chrome://extensions'",
+    "test": "echo 'No tests yet - manual testing required'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fajaede/fajaede-privacy-cleaner.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "privacy",
+    "browser-cleaner",
+    "automated-cleanup",
+    "fajaede",
+    "open-source",
+    "security",
+    "browser-security"
+  ],
+  "author": {
+    "name": "Fajaede",
+    "url": "https://github.com/fajaede"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fajaede/fajaede-privacy-cleaner/issues"
+  },
+  "homepage": "https://github.com/fajaede/fajaede-privacy-cleaner#readme",
+  "engines": {
+    "chrome": ">=88"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
